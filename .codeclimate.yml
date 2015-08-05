@@ -1,0 +1,13 @@
+engines:
+  rubocop:
+    enabled: true
+  fixme:
+    enabled: true
+  bundler-audit:
+    enabled: true
+ratings:
+  paths:
+  - lib/**
+  - "**.rb"
+exclude_paths:
+- spec/**/*
