@@ -1,4 +1,5 @@
 [![Code Climate](https://codeclimate.com/github/bitgaming/secure_trading/badges/gpa.svg)](https://codeclimate.com/github/bitgaming/secure_trading)
+[![Build Status](https://travis-ci.org/bitgaming/secure_trading.svg)](https://travis-ci.org/bitgaming/secure_trading)
 
 # SecureTrading
 
