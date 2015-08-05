@@ -8,3 +8,6 @@ before_install: gem install bundler -v 1.10.6
 addons:
   code_climate:
     repo_token: dc350da1789e06c14050d5bcbeb3fa50ce3208ff55a8fc4573e8dbf9f7c637c2
+
+env:
+  - BUILDER=travis
