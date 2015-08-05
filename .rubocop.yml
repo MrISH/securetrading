@@ -1,0 +1,9 @@
+AllCops:
+  Exclude:
+    - 'bin/*'
+    - 'Gemfile'
+    - 'Guardfile'
+    - 'Rakefile'
+    - 'secure_trading.gemspec'
+Documentation:
+  Enabled: false
