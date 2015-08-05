@@ -1,3 +1,5 @@
+[![Code Climate](https://codeclimate.com/github/bitgaming/secure_trading/badges/gpa.svg)](https://codeclimate.com/github/bitgaming/secure_trading)
+
 # SecureTrading
 
 Ruby library for [securetrading](http://www.securetrading.com/) API integration.
