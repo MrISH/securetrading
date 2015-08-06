@@ -1,8 +1,8 @@
 module SecureTrading
   class Connection
     include HTTParty
-    base_uri 'https://webservices.securetrading.net/xml/'
-    format :xml
+    base_uri 'https://webservices.securetrading.net/xml'
+
     # headers after: http://www.securetrading.com/files/documentation/STPP-Web-Services-User-Guide.pdf
     headers(
       'Content-Type' => 'text/xml;charset=utf-8',
@@ -13,13 +13,14 @@ module SecureTrading
       'Connection' => 'close'
     )
 
-    def self.post_with(xml, options = {})
-      post('', options.merge(body: xml, headers: dynamic_headers))
+    def post_with(xml, options = {})
+      self.class.post('/', options.merge(body: xml, headers: dynamic_headers))
     end
 
-    def self.dynamic_headers
+    private
+
+    def dynamic_headers
       { 'Authorization' => "Basic #{SecureTrading.config.auth}" }
     end
-    private_class_method :dynamic_headers
   end
 end
