@@ -11,7 +11,7 @@ module SecureTrading
     end
 
     def auth
-      return if @auth.present?
+      return @auth if @auth.present?
       if user.present? && password.present?
         @auth ||= Base64.encode64("#{user}:#{password}")
       else
