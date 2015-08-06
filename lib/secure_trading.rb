@@ -6,6 +6,8 @@ require 'active_support/core_ext'
 require 'secure_trading/configuration'
 
 module SecureTrading
+  class Error < StandardError; end
+
   def self.configure
     yield(config)
   end
