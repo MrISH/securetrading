@@ -31,7 +31,7 @@ module SecureTrading
     end
 
     def transaction_reference
-      return unless @parent_transaction.present?
+      return '' unless @parent_transaction.present?
       XmlDoc.elements(parenttransactionreference: @parent_transaction).first
     end
 
@@ -40,7 +40,7 @@ module SecureTrading
     end
 
     def merchant
-      return unless @options[:merchant].present?
+      return '' unless @options[:merchant].present?
       XmlDoc.elements(merchant: @options[:merchant]).first
     end
 
