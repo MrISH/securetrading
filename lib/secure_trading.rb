@@ -23,3 +23,4 @@ module SecureTrading
 end
 
 require 'secure_trading/connection'
+require 'secure_trading/xml_doc'
