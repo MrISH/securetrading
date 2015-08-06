@@ -16,19 +16,10 @@ describe SecureTrading::Configuration do
   end
 
   describe '#auth' do
-    context 'when set by writer' do
-      it 'returns its value' do
-        config.auth = 'auth'
-        expect(config.auth).to eq 'auth'
-      end
-    end
+    let(:config_attrs) { { user: 'a', password: 'b' } }
 
-    context 'when not set' do
-      let(:config_attrs) { { user: 'a', password: 'b' } }
-
-      it 'returns Base64 encoded user:password string' do
-        expect(config.auth).to eq Base64.encode64('a:b')
-      end
+    it 'returns Base64 encoded user:password string' do
+      expect(config.auth).to eq Base64.encode64('a:b')
     end
   end
 end
