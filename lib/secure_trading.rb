@@ -1,5 +1,8 @@
 require 'secure_trading/version'
+require 'ox'
 require 'httparty'
+require 'active_support'
+require 'active_support/core_ext'
 require 'secure_trading/configuration'
 
 module SecureTrading
