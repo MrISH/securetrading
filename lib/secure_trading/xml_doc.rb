@@ -2,8 +2,7 @@ module SecureTrading
   class XmlDoc
     def initialize(request_type, account_type)
       @account_type = account_type
-      doc.requestblock << alias_el
-      doc.requestblock << request(request_type)
+      @request_type = request_type
     end
 
     def doc
@@ -11,8 +10,8 @@ module SecureTrading
       @doc = Ox::Document.new(version: '1.0')
       root = new_element('requestblock')
       root[:version] = '3.67'
+      root << alias_el << request_el
       @doc << root
-      @doc
     end
 
     def self.elements(hash)
@@ -51,11 +50,10 @@ module SecureTrading
       self.class.elements(alias: SecureTrading.config.user).first
     end
 
-    def request(type)
+    def request_el
       el = new_element('request')
-      el[:type] = type
+      el[:type] = @request_type
       el << operation
-      el
     end
   end
 end
