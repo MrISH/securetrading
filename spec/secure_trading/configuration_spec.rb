@@ -3,7 +3,7 @@ require 'spec_helper'
 describe SecureTrading::Configuration do
   it { expect(subject).to respond_to :user }
   it { expect(subject).to respond_to :password }
-  it { expect(subject).to respond_to :sitereference }
+  it { expect(subject).to respond_to :site_reference }
   it { expect(subject).to respond_to :auth }
 
   let(:config_attrs) { {} }
