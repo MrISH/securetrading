@@ -51,7 +51,9 @@ Parameters:
 
 ```ruby
 > ref = SecureTrading::Refund.new(11, '1-9-1912893', { merchant: { orderreference: 'order2'}, account_type: 'CFT' })
+> ref.perform
 ```
+
 Will send post request with xml:
 
 ```XML
