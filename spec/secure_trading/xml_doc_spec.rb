@@ -14,7 +14,7 @@ describe SecureTrading::XmlDoc do
       expect(elements.first.nodes.first).to eq 'first'
     end
 
-    context 'when arguments is nested hash' do
+    context 'when argument is nested hash' do
       let(:tags) { { tag: { subtag: 'text', subtag2: 'text2' } } }
       let(:expected_xml) do
         "\n<tag>\n  <subtag>text</subtag>\n  <subtag2>text2</subtag2>\n</tag>\n"
