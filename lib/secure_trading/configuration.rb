@@ -1,7 +1,6 @@
 module SecureTrading
+  class ConfigurationError < StandardError; end
   class Configuration
-    class ConfigurationError < StandardError; end
-
     attr_accessor :user, :password
     attr_writer :site_reference
 
