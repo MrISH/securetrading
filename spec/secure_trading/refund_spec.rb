@@ -1,9 +1,21 @@
 require 'spec_helper'
 
 describe SecureTrading::Refund do
+  let(:options) { {} }
+  let(:refund) { described_class.new(100, 'parent', options) }
+
+  describe '#perform' do
+    before do
+      allow(refund).to receive(:to_xml) { '<xml>' }
+    end
+
+    it 'calls post_with' do
+      expect(refund).to receive(:post_with).with('<xml>', {})
+      refund.perform
+    end
+  end
+
   describe '#to_xml' do
-    let(:options) { {} }
-    let(:refund) { described_class.new(100, 'parent', options) }
     # rubocop:disable Metrics/LineLength
     let(:expected_xml) do
       "\n<requestblock version=\"3.67\">\n"\
