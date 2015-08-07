@@ -24,7 +24,54 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+### Configuration
+
+Set up configuration options in initializer like this:
+
+```
+SecureTrading.configure do |c|
+  c.user = 'user_site1234@securetrading.com'
+  c.password = 'password'
+  c.site_reference = 'site1234'
+end
+```
+
+### Supported Api requests
+
+Currently supported methods:
+
+#### REFUND
+
+Parameters:
+- amount - refunded amount in cents
+- order reference - original transaction reference you want to refund. Required for Refund. Not required for CFT Refund.
+- options - Hash of options.
+  - merchant - Check XML specification for merchant xml tags.
+  - account_type - default to ECOM. If you want to set different ```accounttypedescription``` xml tag you should set this option.
+
+```ruby
+> ref = SecureTrading::Refund.new(11, '1-9-1912893', { merchant: { orderreference: 'order2'}, account_type: 'CFT' })
+```
+Will send post request with xml:
+
+```XML
+<requestblock version="3.67">
+  <alias>user_site1234@securetrading.com</alias>
+  <request type="REFUND">
+    <operation>
+      <sitereference>site1234</sitereference>
+      <accounttypedescription>CFT</accounttypedescription>
+      <parenttransactionreference>1-9-1912893</parenttransactionreference>
+    </operation>
+    <merchant>
+      <orderreference>order2</orderreference>
+    </merchant>
+    <billing>
+      <amount>11</amount>
+    </billing>
+  </request>
+</requestblock>
+```
 
 ## Development
 
