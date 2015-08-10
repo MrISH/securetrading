@@ -35,7 +35,7 @@ describe SecureTrading::Refund do
     # rubocop:enable Metrics/LineLength
 
     it 'returns xml representation of refund' do
-      expect(refund.to_xml).to eq expected_xml
+      expect(refund.to_xml).to eq(expected_xml)
     end
 
     context 'with account_type option' do

@@ -4,7 +4,7 @@ describe SecureTrading do
   after { described_class.send('config=', nil) }
 
   it 'has a version number' do
-    expect(SecureTrading::VERSION).not_to be nil
+    expect(SecureTrading::VERSION).not_to be(nil)
   end
 
   describe '#config' do
@@ -12,13 +12,13 @@ describe SecureTrading do
       it 'returns new configuration', type: :no_config do
         new_config = SecureTrading::Configuration.new
         expect(SecureTrading::Configuration).to receive(:new) { new_config }
-        expect(subject.config).to eq new_config
+        expect(subject.config).to eq(new_config)
       end
     end
 
     context 'when it is set' do
       it 'contains set value' do
-        expect(subject.config.user).to eq 'u'
+        expect(subject.config.user).to eq('u')
       end
     end
   end

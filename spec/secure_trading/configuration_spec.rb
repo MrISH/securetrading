@@ -46,7 +46,7 @@ describe SecureTrading::Configuration, type: :no_config do
       let(:config_attrs) { { site_reference: 'a' } }
 
       it 'returns site_reference value' do
-        expect(config.site_reference).to eq 'a'
+        expect(config.site_reference).to eq('a')
       end
     end
 

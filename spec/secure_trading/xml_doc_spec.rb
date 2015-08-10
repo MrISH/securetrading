@@ -6,12 +6,12 @@ describe SecureTrading::XmlDoc do
     let(:elements) { described_class.elements(tags) }
 
     it 'return array of Ox::Element' do
-      expect(elements.first).to be_a Ox::Element
+      expect(elements.first).to be_a(Ox::Element)
     end
 
     it 'returns elements with key as tag and value as nested text' do
-      expect(elements.first.name).to eq 'tag'
-      expect(elements.first.nodes.first).to eq 'first'
+      expect(elements.first.name).to eq('tag')
+      expect(elements.first.nodes.first).to eq('first')
     end
 
     context 'when argument is nested hash' do
@@ -21,7 +21,7 @@ describe SecureTrading::XmlDoc do
       end
 
       it 'returns defined ox elements tree' do
-        expect(Ox.dump(elements.first)).to eq expected_xml
+        expect(Ox.dump(elements.first)).to eq(expected_xml)
       end
     end
   end
@@ -29,8 +29,8 @@ describe SecureTrading::XmlDoc do
   describe '.new_element' do
     let(:element) { described_class.new_element('name') }
     it 'returns Ox::Element with name' do
-      expect(element).to be_a Ox::Element
-      expect(element.name).to eq 'name'
+      expect(element).to be_a(Ox::Element)
+      expect(element.name).to eq('name')
     end
   end
 
@@ -38,7 +38,7 @@ describe SecureTrading::XmlDoc do
     let(:doc) { described_class.new('REFUND', 'ECOM').doc }
 
     it 'returns prepared Ox::Document' do
-      expect(doc).to be_a Ox::Document
+      expect(doc).to be_a(Ox::Document)
     end
 
     context 'dumped to xml' do
@@ -55,7 +55,7 @@ describe SecureTrading::XmlDoc do
       end
 
       it 'returns predefined xml structure' do
-        expect(Ox.dump(doc)).to eq expected_xml
+        expect(Ox.dump(doc)).to eq(expected_xml)
       end
     end
   end
