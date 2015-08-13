@@ -9,8 +9,8 @@ describe Securetrading::Refund do
       allow(refund).to receive(:to_xml) { '<xml>' }
     end
 
-    it 'calls post_with' do
-      expect(refund).to receive(:post_with).with('<xml>', {})
+    it 'calls perform_with using :post' do
+      expect(refund).to receive(:perform_with).with(:post, '<xml>', {})
       refund.perform
     end
   end

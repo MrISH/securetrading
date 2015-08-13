@@ -8,31 +8,30 @@ module Securetrading
     end
 
     def perform(options = {})
-      post_with(to_xml, options)
-    end
-
-    def to_xml
-      Ox.dump(ox_xml)
+      perform_with(:post, to_xml, options)
     end
 
     private
 
     def ox_xml
-      return doc if xml_prepared?
-      req = doc.requestblock.request
-      req << merchant << billing
-      req.operation << transaction_reference
-      @xml_prepared = true
-      doc
+      prepare_doc do
+        req = doc.requestblock.request
+        req << merchant << operation << billing
+      end
     end
 
-    def doc
-      @doc ||= XmlDoc.new('REFUND', @account_type).doc
+    def request_type
+      'REFUND'.freeze
     end
 
-    def transaction_reference
-      return '' unless @parent_transaction.present?
-      XmlDoc.elements(parenttransactionreference: @parent_transaction).first
+    def operation
+      XmlDoc.elements(
+        operation: {
+          sitereference: Securetrading.config.site_reference,
+          accounttypedescription: @account_type,
+          parenttransactionreference: @parent_transaction
+        }
+      ).first
     end
 
     def billing
@@ -42,10 +41,6 @@ module Securetrading
     def merchant
       return '' unless @options[:merchant].present?
       XmlDoc.elements(merchant: @options[:merchant]).first
-    end
-
-    def xml_prepared?
-      @xml_prepared
     end
   end
 end

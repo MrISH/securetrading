@@ -45,12 +45,7 @@ describe Securetrading::XmlDoc do
       let(:expected_xml) do
         "\n<requestblock version=\"3.67\">\n"\
           "  <alias>u</alias>\n"\
-          "  <request type=\"REFUND\">\n"\
-          "    <operation>\n"\
-          "      <sitereference>sr</sitereference>\n"\
-          "      <accounttypedescription>ECOM</accounttypedescription>\n"\
-          "    </operation>\n"\
-          "  </request>\n"\
+          "  <request type=\"REFUND\"/>\n"\
           "</requestblock>\n"
       end
 

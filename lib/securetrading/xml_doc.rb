@@ -37,15 +37,6 @@ module Securetrading
       self.class.new_element(name)
     end
 
-    def operation
-      self.class.elements(
-        operation: {
-          sitereference: Securetrading.config.site_reference,
-          accounttypedescription: @account_type
-        }
-      ).first
-    end
-
     def alias_el
       self.class.elements(alias: Securetrading.config.user).first
     end
@@ -53,7 +44,7 @@ module Securetrading
     def request_el
       el = new_element('request')
       el[:type] = @request_type
-      el << operation
+      el
     end
   end
 end
