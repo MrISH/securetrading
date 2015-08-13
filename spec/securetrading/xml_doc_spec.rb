@@ -24,6 +24,15 @@ describe Securetrading::XmlDoc do
         expect(Ox.dump(elements.first)).to eq(expected_xml)
       end
     end
+
+    context 'when elements value is an Array' do
+      let(:tags) { { tag: %w(1 2 3) } }
+
+      it 'returns multiple elements with the same tag but different content' do
+        expect(elements.map { |e| Ox.dump(e) })
+          .to eq(["\n<tag>1</tag>\n", "\n<tag>2</tag>\n", "\n<tag>3</tag>\n"])
+      end
+    end
   end
 
   describe '.new_element' do

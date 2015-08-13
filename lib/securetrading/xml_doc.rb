@@ -14,18 +14,21 @@ module Securetrading
       @doc << root
     end
 
+    # rubocop:disable Metrics/MethodLength
     def self.elements(hash)
-      return unless hash.present?
-      hash.map do |k, v|
+      return '' unless hash.present?
+      hash.flat_map do |k, v|
+        return v.flat_map { |e| elements(k => e) } if v.is_a?(Array)
         el = new_element(k.to_s)
-        if v.is_a? Hash
+        if v.is_a?(Hash)
           elements(v).each { |e| el << e }
         else
           el << v.to_s
         end
-        el
+        [el]
       end
     end
+    # rubocop:enable Metrics/MethodLength
 
     def self.new_element(name)
       Ox::Element.new(name)
