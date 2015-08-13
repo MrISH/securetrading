@@ -4,6 +4,6 @@ AllCops:
     - 'Gemfile'
     - 'Guardfile'
     - 'Rakefile'
-    - 'secure_trading.gemspec'
+    - 'securetrading.gemspec'
 Documentation:
   Enabled: false

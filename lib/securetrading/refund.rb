@@ -1,4 +1,4 @@
-module SecureTrading
+module Securetrading
   class Refund < Connection
     def initialize(amount, parent_transaction, options = {})
       @amount = amount

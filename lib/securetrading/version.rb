@@ -1,3 +1,3 @@
-module SecureTrading
+module Securetrading
   VERSION = '0.1.0'
 end

@@ -1,4 +1,4 @@
-module SecureTrading
+module Securetrading
   class XmlDoc
     def initialize(request_type, account_type)
       @account_type = account_type
@@ -40,14 +40,14 @@ module SecureTrading
     def operation
       self.class.elements(
         operation: {
-          sitereference: SecureTrading.config.site_reference,
+          sitereference: Securetrading.config.site_reference,
           accounttypedescription: @account_type
         }
       ).first
     end
 
     def alias_el
-      self.class.elements(alias: SecureTrading.config.user).first
+      self.class.elements(alias: Securetrading.config.user).first
     end
 
     def request_el

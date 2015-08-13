@@ -1,4 +1,4 @@
-module SecureTrading
+module Securetrading
   class Connection
     include HTTParty
     base_uri 'https://webservices.securetrading.net/xml'
@@ -8,8 +8,8 @@ module SecureTrading
       'Content-Type' => 'text/xml;charset=utf-8',
       'Accept-Encoding' => 'gzip',
       'Accept' => 'text/xml',
-      'User-Agent' => 'SecureTrading Ruby gem; '\
-                      "version: #{SecureTrading::VERSION}",
+      'User-Agent' => 'Securetrading Ruby gem; '\
+                      "version: #{Securetrading::VERSION}",
       'Connection' => 'close'
     )
 
@@ -20,7 +20,7 @@ module SecureTrading
     private
 
     def dynamic_headers
-      { 'Authorization' => "Basic #{SecureTrading.config.auth}" }
+      { 'Authorization' => "Basic #{Securetrading.config.auth}" }
     end
   end
 end

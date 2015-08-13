@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe SecureTrading::Refund do
+describe Securetrading::Refund do
   let(:options) { {} }
   let(:refund) { described_class.new(100, 'parent', options) }
 

@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe SecureTrading::XmlDoc do
+describe Securetrading::XmlDoc do
   describe '.elements' do
     let(:tags) { { tag: 'first' } }
     let(:elements) { described_class.elements(tags) }

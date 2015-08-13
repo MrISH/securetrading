@@ -1,17 +1,17 @@
 require 'spec_helper'
 
-describe SecureTrading do
+describe Securetrading do
   after { described_class.send('config=', nil) }
 
   it 'has a version number' do
-    expect(SecureTrading::VERSION).not_to be(nil)
+    expect(Securetrading::VERSION).not_to be(nil)
   end
 
   describe '#config' do
     context 'when not set' do
       it 'returns new configuration', type: :no_config do
-        new_config = SecureTrading::Configuration.new
-        expect(SecureTrading::Configuration).to receive(:new) { new_config }
+        new_config = Securetrading::Configuration.new
+        expect(Securetrading::Configuration).to receive(:new) { new_config }
         expect(subject.config).to eq(new_config)
       end
     end

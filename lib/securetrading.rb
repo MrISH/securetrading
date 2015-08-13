@@ -1,11 +1,11 @@
-require 'secure_trading/version'
+require 'securetrading/version'
 require 'ox'
 require 'httparty'
 require 'active_support'
 require 'active_support/core_ext'
-require 'secure_trading/configuration'
+require 'securetrading/configuration'
 
-module SecureTrading
+module Securetrading
   class Error < StandardError; end
 
   def self.configure
@@ -22,6 +22,6 @@ module SecureTrading
   private_class_method 'config='
 end
 
-require 'secure_trading/connection'
-require 'secure_trading/xml_doc'
-require 'secure_trading/refund'
+require 'securetrading/connection'
+require 'securetrading/xml_doc'
+require 'securetrading/refund'

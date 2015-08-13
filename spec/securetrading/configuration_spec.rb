@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe SecureTrading::Configuration, type: :no_config do
+describe Securetrading::Configuration, type: :no_config do
   it { expect(subject).to respond_to :user }
   it { expect(subject).to respond_to :password }
   it { expect(subject).to respond_to :site_reference }
@@ -27,7 +27,7 @@ describe SecureTrading::Configuration, type: :no_config do
 
       it 'fails with ConnectionError' do
         expect { config.auth }
-          .to raise_error(SecureTrading::ConfigurationError)
+          .to raise_error(Securetrading::ConfigurationError)
       end
     end
 
@@ -36,7 +36,7 @@ describe SecureTrading::Configuration, type: :no_config do
 
       it 'fails with ConnectionError' do
         expect { config.auth }
-          .to raise_error(SecureTrading::ConfigurationError)
+          .to raise_error(Securetrading::ConfigurationError)
       end
     end
   end
@@ -53,7 +53,7 @@ describe SecureTrading::Configuration, type: :no_config do
     context 'when not set' do
       it 'fails with ConfigurationError' do
         expect { config.site_reference }
-          .to raise_error(SecureTrading::ConfigurationError)
+          .to raise_error(Securetrading::ConfigurationError)
       end
     end
   end

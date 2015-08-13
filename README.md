@@ -1,8 +1,8 @@
-[![Code Climate](https://codeclimate.com/github/bitgaming/secure_trading/badges/gpa.svg)](https://codeclimate.com/github/bitgaming/secure_trading)
-[![Test Coverage](https://codeclimate.com/github/bitgaming/secure_trading/badges/coverage.svg)](https://codeclimate.com/github/bitgaming/secure_trading/coverage)
-[![Build Status](https://travis-ci.org/bitgaming/secure_trading.svg)](https://travis-ci.org/bitgaming/secure_trading)
+[![Code Climate](https://codeclimate.com/github/bitgaming/securetrading/badges/gpa.svg)](https://codeclimate.com/github/bitgaming/securetrading)
+[![Test Coverage](https://codeclimate.com/github/bitgaming/securetrading/badges/coverage.svg)](https://codeclimate.com/github/bitgaming/securetrading/coverage)
+[![Build Status](https://travis-ci.org/bitgaming/securetrading.svg)](https://travis-ci.org/bitgaming/securetrading)
 
-# SecureTrading
+# Securetrading
 
 Ruby library for [securetrading](http://www.securetrading.com/) API integration.
 
@@ -11,7 +11,7 @@ Ruby library for [securetrading](http://www.securetrading.com/) API integration.
 Add this line to your application's Gemfile:
 
 ```ruby
-gem 'secure_trading'
+gem 'securetrading'
 ```
 
 And then execute:
@@ -20,7 +20,7 @@ And then execute:
 
 Or install it yourself as:
 
-    $ gem install secure_trading
+    $ gem install securetrading
 
 ## Usage
 
@@ -29,7 +29,7 @@ Or install it yourself as:
 Set up configuration options in initializer like this:
 
 ```
-SecureTrading.configure do |c|
+Securetrading.configure do |c|
   c.user = 'user_site1234@securetrading.com'
   c.password = 'password'
   c.site_reference = 'site1234'
@@ -50,7 +50,7 @@ Parameters:
   - account_type - default to ECOM. If you want to set different ```accounttypedescription``` xml tag you should set this option.
 
 ```ruby
-> ref = SecureTrading::Refund.new(11, '1-9-1912893', { merchant: { orderreference: 'order2'}, account_type: 'CFT' })
+> ref = Securetrading::Refund.new(11, '1-9-1912893', { merchant: { orderreference: 'order2'}, account_type: 'CFT' })
 > ref.perform
 ```
 
@@ -83,7 +83,7 @@ To install this gem onto your local machine, run `bundle exec rake install`. To 
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/[USERNAME]/secure_trading. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](contributor-covenant.org) code of conduct.
+Bug reports and pull requests are welcome on GitHub at https://github.com/bitgamelabs/securetrading. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](contributor-covenant.org) code of conduct.
 
 
 ## License

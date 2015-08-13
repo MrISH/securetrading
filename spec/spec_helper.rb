@@ -9,7 +9,7 @@ else
 end
 
 $LOAD_PATH.unshift File.expand_path('../../lib', __FILE__)
-require 'secure_trading'
+require 'securetrading'
 
 RSpec.configure do |config|
   config.around(:each) do |test|
@@ -20,7 +20,7 @@ RSpec.configure do |config|
 end
 
 def set_config(user = 'u', password = 'p', site_reference = 'sr')
-  SecureTrading.configure do |c|
+  Securetrading.configure do |c|
     c.user = user
     c.password = password
     c.site_reference = site_reference
@@ -28,5 +28,5 @@ def set_config(user = 'u', password = 'p', site_reference = 'sr')
 end
 
 def reset_config
-  SecureTrading.send('config=', nil)
+  Securetrading.send('config=', nil)
 end

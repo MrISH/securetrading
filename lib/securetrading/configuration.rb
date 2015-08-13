@@ -1,4 +1,4 @@
-module SecureTrading
+module Securetrading
   class ConfigurationError < StandardError; end
   class Configuration
     attr_accessor :user, :password
