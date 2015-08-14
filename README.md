@@ -100,6 +100,14 @@ It will send post request with xml:
 </requestblock>
 ```
 
+#### SiteSecurity
+
+Helper class for sitesecurity value calculation.
+More details in [STPP-Payment-Pages-Setup-Guide-V2](http://www.securetrading.com/files/documentation/STPP-Payment-Pages-Setup-Guide-V2.pdf) chapter 6.
+
+Methods:
+ * hash(fields) - calculates SHA256 hash from fields. List of fields you can check in doc above.
+
 ## Development
 
 After checking out the repo, run `bin/setup` to install dependencies. Then, run `rake spec` to run the tests. You can also run `bin/console` for an interactive prompt that will allow you to experiment.
