@@ -2,7 +2,10 @@
 
 ## 0.3.0 / Unreleased
 
-* [Added]
+* [Added] 
+  * Securetrading::SiteSecurity.hash(fields) to return SHA256 encoded sitesecurity value from hash of fields to encode.
+  * auth_method configuration value
+  * site_security_password configuration value
 
 * [Deprecated]
 
