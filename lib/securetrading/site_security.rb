@@ -7,10 +7,10 @@ module Securetrading
     def self.str_to_encode(fields)
       str = ''
       fields.reverse_merge!(authmethod: Securetrading.config.auth_method)
-      %i(currencyiso3a mainamount sitereference settlestatus
-         settleduedate authmethod paypaladdressoverride strequiredfields
-         version stprofile ruleidentifier successfulurlredirect
-         declinedurlredirect).each do |field|
+      [:currencyiso3a, :mainamount, :sitereference, :settlestatus,
+       :settleduedate, :authmethod, :paypaladdressoverride,
+       :strequiredfields, :version, :stprofile, :ruleidentifier,
+       :successfulurlredirect, :declinedurlredirect].each do |field|
         str << fields[field].to_s
       end
       str << Securetrading.config.site_security_password
