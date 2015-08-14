@@ -5,6 +5,8 @@ describe Securetrading::Configuration, type: :no_config do
   it { expect(subject).to respond_to :password }
   it { expect(subject).to respond_to :site_reference }
   it { expect(subject).to respond_to :auth }
+  it { expect(subject).to respond_to :auth_method }
+  it { expect(subject).to respond_to :site_security_password }
 
   let(:config_attrs) { {} }
   let(:config) { described_class.new }
@@ -12,6 +14,38 @@ describe Securetrading::Configuration, type: :no_config do
   before do
     config_attrs.each do |k, v|
       config.public_send("#{k}=", v)
+    end
+  end
+
+  describe '#site_security_password' do
+    context 'when set in configuration process' do
+      let(:config_attrs) { { site_security_password: '123' } }
+      it 'returns configured value' do
+        expect(config.site_security_password).to eq('123')
+      end
+    end
+
+    context 'when not set' do
+      it 'fails with ConfigurationError' do
+        expect { config.site_security_password }
+          .to raise_error(Securetrading::ConfigurationError)
+      end
+    end
+  end
+
+  describe '#auth_method' do
+    context 'when set in configuration process' do
+      let(:config_attrs) { { auth_method: 'PRE' } }
+
+      it 'returns configured value' do
+        expect(config.auth_method).to eq('PRE')
+      end
+    end
+
+    context 'when not set' do
+      it "returns 'FINAL' as default" do
+        expect(config.auth_method).to eq('FINAL')
+      end
     end
   end
 
@@ -25,7 +59,7 @@ describe Securetrading::Configuration, type: :no_config do
     context 'when there is no user config' do
       let(:config_attrs) { { password: 'b' } }
 
-      it 'fails with ConnectionError' do
+      it 'fails with ConfigurationError' do
         expect { config.auth }
           .to raise_error(Securetrading::ConfigurationError)
       end
