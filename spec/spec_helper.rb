@@ -13,17 +13,19 @@ require 'securetrading'
 
 RSpec.configure do |config|
   config.around(:each) do |test|
-    set_config if test.metadata[:type] != :no_config
+    preset_config if test.metadata[:type] != :no_config
     test.run
     reset_config if test.metadata[:type] != :no_config
   end
 end
 
-def set_config(user = 'u', password = 'p', site_reference = 'sr')
+def preset_config(options = {})
   Securetrading.configure do |c|
-    c.user = user
-    c.password = password
-    c.site_reference = site_reference
+    c.user = options[:user] || 'u'
+    c.password = options[:password] || 'p'
+    c.site_reference = options[:site_reference] || 'sr'
+    c.auth_method = options[:auth_method]
+    c.site_security_password = options[:site_reference] || 'ssp'
   end
 end
 
