@@ -75,6 +75,31 @@ Will send post request with xml:
 </requestblock>
 ```
 
+#### FILTER
+
+Parameters: 
+- filters - list of filter xml subtags. You may find full list of filters in this doc: [http://www.securetrading.com/support/document/xml-reference-transaction-query/](http://www.securetrading.com/support/document/xml-reference-transaction-query/)
+
+Example:
+
+```ruby
+> filter = Securetrading::Filter.new({ transactionreference: [ '5-9-1982481', '5-9-1980795'] })
+> filter.perform
+```
+It will send post request with xml:
+
+```XML
+<requestblock version=\"3.67\">
+  <alias>user_site1234@securetrading.com</alias>
+  <request type=\"TRANSACTIONQUERY\">
+    <filter>
+      <transactionreference>5-9-1982481</transactionreference>
+      <transactionreference>5-9-1980795</transactionreference>
+    </filter>
+  </request>
+</requestblock>
+```
+
 ## Development
 
 After checking out the repo, run `bin/setup` to install dependencies. Then, run `rake spec` to run the tests. You can also run `bin/console` for an interactive prompt that will allow you to experiment.
