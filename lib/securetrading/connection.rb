@@ -32,10 +32,10 @@ module Securetrading
     end
 
     def perform_with(method, xml, options = {})
-      self.class.public_send(method,
-                             '/',
-                             options.merge(body: xml,
-                                           headers: dynamic_headers))
+      party = self.class.public_send(
+        method, '/', options.merge(body: xml, headers: dynamic_headers)
+      )
+      Securetrading::Response.new(party)
     end
 
     def dynamic_headers
