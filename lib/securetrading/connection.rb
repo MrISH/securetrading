@@ -24,11 +24,11 @@ module Securetrading
     end
 
     def request_type
-      fail NotImplementedError, 'Implement :request_type method in subclass!'
+      fail NotImplementedError, 'Implement :request_type method in sub-class!'
     end
 
     def ox_xml
-      fail NotImplementedError, 'Implement :ox_xml method in subclass!'
+      fail NotImplementedError, 'Implement :ox_xml method in sub-class!'
     end
 
     def perform_with(method, xml, options = {})
