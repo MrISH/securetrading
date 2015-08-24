@@ -25,22 +25,20 @@ module Securetrading
     end
 
     def operation
-      XmlDoc.elements(
-        operation: {
-          sitereference: Securetrading.config.site_reference,
-          accounttypedescription: @account_type,
-          parenttransactionreference: @parent_transaction
-        }
-      ).first
+      Operation.new(
+        sitereference: Securetrading.config.site_reference,
+        accounttypedescription: @account_type,
+        parenttransactionreference: @parent_transaction
+      ).ox_xml
     end
 
     def billing
-      XmlDoc.elements(billing: { amount: @amount }).first
+      Billing.new(amount: @amount).ox_xml
     end
 
     def merchant
       return '' unless @options[:merchant].present?
-      XmlDoc.elements(merchant: @options[:merchant]).first
+      Merchant.new(@options[:merchant]).ox_xml
     end
   end
 end

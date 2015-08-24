@@ -4,7 +4,15 @@ module Securetrading
       @attributes_hash = attrs_hash.presence && attrs_hash.stringify_keys
     end
 
+    def ox_xml
+      XmlDoc.elements(xml_tag_name => @attributes_hash).first
+    end
+
     private
+
+    def xml_tag_name
+      self.class.name.demodulize.downcase
+    end
 
     def method_missing(m, *args, &block)
       return super unless attributes_hash.key?(m.to_s)
