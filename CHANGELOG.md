@@ -9,6 +9,7 @@
   * Securetrading::Response to objectify response from httparty
 
 * [Deprecated]
+  * Renamed Filter class to TransactionQuery class as much more relevant.
 
 * [Removed]
 
