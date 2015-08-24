@@ -25,6 +25,6 @@ end
 require 'securetrading/connection'
 require 'securetrading/xml_doc'
 require 'securetrading/refund'
-require 'securetrading/filter'
+require 'securetrading/transaction_query'
 require 'securetrading/site_security'
 require 'securetrading/models'

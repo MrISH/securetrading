@@ -1,5 +1,5 @@
 module Securetrading
-  class Filter < Connection
+  class TransactionQuery < Connection
     def initialize(filters)
       @filters = filters
     end

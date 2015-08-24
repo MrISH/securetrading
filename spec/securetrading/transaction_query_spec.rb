@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe Securetrading::Filter do
+describe Securetrading::TransactionQuery do
   let(:filters) { {} }
   let(:filter) { described_class.new(filters) }
 

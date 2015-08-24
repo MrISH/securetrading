@@ -75,7 +75,7 @@ Will send post request with xml:
 </requestblock>
 ```
 
-#### FILTER
+#### TRANSACTIONQUERY
 
 Parameters: 
 - filters - list of filter xml subtags. You may find full list of filters in this doc: [http://www.securetrading.com/support/document/xml-reference-transaction-query/](http://www.securetrading.com/support/document/xml-reference-transaction-query/)
@@ -83,8 +83,8 @@ Parameters:
 Example:
 
 ```ruby
-> filter = Securetrading::Filter.new({ transactionreference: [ '5-9-1982481', '5-9-1980795'] })
-> filter.perform
+> query = Securetrading::TransactionQuery.new(transactionreference: [ '5-9-1982481', '5-9-1980795'])
+> query.perform
 ```
 It will send post request with xml:
 
