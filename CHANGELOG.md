@@ -1,6 +1,16 @@
 # Securetrading change log
 
-## 0.3.0 / Unreleased
+## 0.4.0 / Unreleased
+
+* [Added] 
+
+* [Deprecated]
+
+* [Removed]
+
+* [Fixed]
+
+## 0.3.0 / 2015-08-25
 
 * [Added] 
   * Securetrading::SiteSecurity.hash(fields) to return SHA256 encoded sitesecurity value from hash of fields to encode.
@@ -10,10 +20,6 @@
 
 * [Deprecated]
   * Renamed Filter class to TransactionQuery class as much more relevant.
-
-* [Removed]
-
-* [Fixed]
 
 ## 0.2.0 / 2015-08-14
 
