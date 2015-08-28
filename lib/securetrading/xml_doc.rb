@@ -16,7 +16,7 @@ module Securetrading
 
     # rubocop:disable Metrics/MethodLength
     def self.elements(hash)
-      return '' unless hash.present?
+      return [''] unless hash.present?
       hash.flat_map do |k, v|
         return v.flat_map { |e| elements(k => e) } if v.is_a?(Array)
         el = new_element(k.to_s)

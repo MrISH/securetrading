@@ -14,6 +14,23 @@ describe Securetrading::XmlDoc do
       expect(elements.first.nodes.first).to eq('first')
     end
 
+    context 'when hash is not present' do
+      let(:tags) { {} }
+
+      it 'returns array with empty string' do
+        expect(elements).to eq([''])
+      end
+
+      context 'for nested tag' do
+        let(:tags) { { billing: {} } }
+        let(:expected_xml) { "\n<billing></billing>\n" }
+
+        it 'expected xml does not have content' do
+          expect(Ox.dump(elements.first)).to eq(expected_xml)
+        end
+      end
+    end
+
     context 'when argument is nested hash' do
       let(:tags) { { tag: { subtag: 'text', subtag2: 'text2' } } }
       let(:expected_xml) do
