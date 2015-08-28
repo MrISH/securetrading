@@ -44,7 +44,7 @@ Currently supported methods:
 
 Parameters:
 - amount - refunded amount in cents
-- order reference - original transaction reference you want to refund. Required for Refund. Not required for CFT Refund.
+- parent_transaction - original transaction reference you want to refund.
 - options - Hash of options.
   - merchant - Check XML specification for merchant xml tags.
   - account_type - default to ECOM. If you want to set different ```accounttypedescription``` xml tag you should set this option.
