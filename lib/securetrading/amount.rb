@@ -1,7 +1,7 @@
 module Securetrading
   class Amount < BaseModel
     def value
-      attributes_hash['__content__']
+      attributes_hash['content']
     end
 
     def ox_xml

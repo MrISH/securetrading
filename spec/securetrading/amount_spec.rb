@@ -3,10 +3,10 @@ require 'spec_helper'
 describe Securetrading::Amount do
   it { should respond_to(:value) }
 
-  let(:amount) { described_class.new(__content__: 1, currencycode: 'EUR') }
+  let(:amount) { described_class.new(content: 1, currencycode: 'EUR') }
 
   describe '#value' do
-    it 'returns value from __content__ attribute' do
+    it 'returns value from content attribute' do
       expect(amount.value).to eq(1)
     end
   end
