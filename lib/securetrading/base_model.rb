@@ -1,7 +1,8 @@
 module Securetrading
   class BaseModel
     def initialize(attrs_hash = {})
-      @attributes_hash = attrs_hash.presence && attrs_hash.stringify_keys
+      @attributes_hash = attrs_hash.presence &&
+                         attrs_hash.transform_keys! { |k| k.to_s.tr('__', '') }
     end
 
     def ox_xml

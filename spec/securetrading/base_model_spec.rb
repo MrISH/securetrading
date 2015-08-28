@@ -4,6 +4,14 @@ describe Securetrading::BaseModel do
   let(:attributes) { { one: { two: 'three' } } }
   let(:model) { described_class.new(attributes) }
 
+  describe '#initialize' do
+    let(:attributes) { { __one__: '1' } }
+
+    it 'assigns @attributes_hash and removes __ from keys' do
+      expect(model.send(:attributes_hash).keys).to eq(['one'])
+    end
+  end
+
   describe '#method_missing' do
     context 'when attributes_hash contains key' do
       it 'returns value from attributes_hash' do
