@@ -33,7 +33,7 @@ module Securetrading
     end
 
     def billing
-      Billing.new(amount: @amount).ox_xml
+      Billing.new(amount: { content: @amount }).ox_xml
     end
 
     def merchant
