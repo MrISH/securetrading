@@ -10,6 +10,11 @@
 
 * [Fixed]
 
+## 0.3.1 / 2015-08-28
+
+* [Fixed]
+  * Amount xml generation
+
 ## 0.3.0 / 2015-08-25
 
 * [Added] 
