@@ -18,6 +18,13 @@ group :red_green_refactor, halt_on_fail: true do
     watch(%r{^spec/acceptance/steps/(.+)_steps\.rb$}) do |m|
       Dir[File.join("**/#{m[1]}.feature")][0] || 'spec/acceptance'
     end
+
+    # BaseModel subclasses
+    watch('lib/securetrading/base_model.rb') do
+      %w(amount billing record response).map do |name|
+        "spec/securetrading/#{name}_spec.rb"
+      end 
+    end
   end
 
   guard :rubocop, all_on_start: false, cli: ['--rails', '--auto-correct'] do
