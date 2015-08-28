@@ -6,10 +6,21 @@ module Securetrading
     end
 
     def ox_xml
-      XmlDoc.elements(xml_tag_name => @attributes_hash).first
+      ox = ox_from_values
+      sub_classes.each do |sub_class_name|
+        next unless attributes_hash.key?(sub_class_name)
+        ox << send(sub_class_name).ox_xml
+      end
+      ox
     end
 
     private
+
+    def ox_from_values
+      XmlDoc
+        .elements(xml_tag_name => @attributes_hash.except(*sub_classes))
+        .first
+    end
 
     def xml_tag_name
       self.class.name.demodulize.downcase
