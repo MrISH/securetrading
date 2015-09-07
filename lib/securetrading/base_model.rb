@@ -1,5 +1,7 @@
 module Securetrading
   class BaseModel
+    attr_reader :attributes_hash
+
     def initialize(attrs_hash = {})
       @attributes_hash = attrs_hash.presence &&
                          attrs_hash.transform_keys! { |k| k.to_s.tr('__', '') }
@@ -45,7 +47,5 @@ module Securetrading
     def sub_classes
       []
     end
-
-    attr_reader :attributes_hash
   end
 end
