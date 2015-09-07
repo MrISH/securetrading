@@ -10,6 +10,11 @@
 
 * [Fixed]
 
+## 0.3.2 / 2015-09-07
+
+* [Fixed]
+  * make attributes_hash public
+
 ## 0.3.1 / 2015-08-28
 
 * [Fixed]
