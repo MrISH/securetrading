@@ -3,6 +3,7 @@
 ## 0.4.0 / Unreleased
 
 * [Added] 
+  * Allow to pass configuration options directly to requests.
 
 * [Deprecated]
 

@@ -36,6 +36,14 @@ Securetrading.configure do |c|
 end
 ```
 
+Alternatively you may pass configuration options directly to request.
+
+```
+> config = { user: 'user', passowrd: 'password', site_reference: 'ref' }
+> ref = Securetrading::Refund.new(11, '1-9-1912893', { merchant: { orderreference: 'order2'}, account_type: 'CFT' }, config)
+> ref.perform
+```
+
 ### Supported Api requests
 
 Currently supported methods:
