@@ -9,6 +9,7 @@
 * [Removed]
 
 * [Fixed]
+  * Fix ruby 1.9.3 compatibility
 
 ## 0.4.0 / 2015-12-17
 
