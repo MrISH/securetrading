@@ -19,8 +19,19 @@ module Securetrading
 
     private
 
+    attr_reader :config_options
+
+    def config
+      @config ||= configuration
+    end
+
+    def configuration
+      return Securetrading.config unless config_options.present?
+      Configuration.new(config_options)
+    end
+
     def doc
-      @doc ||= XmlDoc.new(request_type, @account_type).doc
+      @doc ||= XmlDoc.new(request_type, @account_type, config.user).doc
     end
 
     def request_type
@@ -39,7 +50,7 @@ module Securetrading
     end
 
     def dynamic_headers
-      { 'Authorization' => "Basic #{Securetrading.config.auth}" }
+      { 'Authorization' => "Basic #{config.auth}" }
     end
 
     def prepare_doc

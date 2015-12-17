@@ -41,4 +41,28 @@ describe Securetrading::Connection do
       end.to raise_exception(NotImplementedError)
     end
   end
+
+  describe '#config' do
+    let(:conn) { described_class.new }
+    before do
+      Securetrading.configure { |c| c.user = 'u' }
+    end
+    after { Securetrading.send('config=', 'nil') }
+
+    context 'when config_options are set' do
+      before do
+        conn.instance_variable_set('@config_options', user: 'from_opts')
+      end
+
+      it 'returns new Configuration initialized with config_options' do
+        expect(conn.send(:config).user).to eq('from_opts')
+      end
+    end
+
+    context 'when config_options are not set' do
+      it 'returns config set by configuration' do
+        expect(conn.send(:config).user).to eq('u')
+      end
+    end
+  end
 end
