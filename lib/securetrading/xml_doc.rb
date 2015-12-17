@@ -1,8 +1,9 @@
 module Securetrading
   class XmlDoc
-    def initialize(request_type, account_type)
+    def initialize(request_type, account_type, user = nil)
       @account_type = account_type
       @request_type = request_type
+      @user = user
     end
 
     def doc
@@ -41,7 +42,7 @@ module Securetrading
     end
 
     def alias_el
-      self.class.elements(alias: Securetrading.config.user).first
+      self.class.elements(alias: @user || Securetrading.config.user).first
     end
 
     def request_el
