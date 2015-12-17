@@ -5,8 +5,8 @@ module Securetrading
     attr_writer :site_reference, :auth_method, :site_security_password
 
     def initialize(options = {})
-      %i(user password site_reference auth_method
-         site_security_password).each do |var|
+      [:user, :password, :site_reference, :auth_method,
+       :site_security_password].each do |var|
         instance_variable_set("@#{var}", options[var])
       end
     end

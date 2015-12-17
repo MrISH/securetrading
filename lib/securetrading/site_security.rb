@@ -8,10 +8,10 @@ module Securetrading
       config = configuration(config_options)
       str = ''
       fields.reverse_merge!(authmethod: config.auth_method)
-      %i(currencyiso3a mainamount sitereference settlestatus authmethod
-         settleduedate paypaladdressoverride strequiredfields version
-         stprofile ruleidentifier successfulurlredirect
-         declinedurlredirect).each do |field|
+      [:currencyiso3a, :mainamount, :sitereference, :settlestatus,
+       :authmethod, :settleduedate, :paypaladdressoverride,
+       :strequiredfields, :version, :stprofile, :ruleidentifier,
+       :successfulurlredirect, :declinedurlredirect].each do |field|
         str << fields[field].to_s
       end
       str << config.site_security_password
