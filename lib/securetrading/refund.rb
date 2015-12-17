@@ -1,10 +1,11 @@
 module Securetrading
   class Refund < Connection
-    def initialize(amount, parent_transaction, options = {})
+    def initialize(amount, parent_transaction, opts = {}, config_opts = {})
       @amount = amount
       @parent_transaction = parent_transaction
-      @account_type = options[:account_type].presence || 'ECOM'
-      @options = options
+      @account_type = opts[:account_type].presence || 'ECOM'
+      @options = opts
+      @config_options = config_opts
     end
 
     def perform(options = {})
@@ -26,7 +27,7 @@ module Securetrading
 
     def operation
       Operation.new(
-        sitereference: Securetrading.config.site_reference,
+        sitereference: config.site_reference,
         accounttypedescription: @account_type,
         parenttransactionreference: @parent_transaction
       ).ox_xml

@@ -1,7 +1,8 @@
 module Securetrading
   class TransactionQuery < Connection
-    def initialize(filters)
+    def initialize(filters, config_options = {})
       @filters = filters
+      @config_options = config_options
     end
 
     def perform(options = {})
