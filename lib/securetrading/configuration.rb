@@ -4,6 +4,13 @@ module Securetrading
     attr_accessor :user, :password
     attr_writer :site_reference, :auth_method, :site_security_password
 
+    def initialize(options = {})
+      %i(user password site_reference auth_method
+         site_security_password).each do |var|
+        instance_variable_set("@#{var}", options[var])
+      end
+    end
+
     def site_security_password
       return @site_security_password if @site_security_password.present?
       fail ConfigurationError, 'You are trying to use site security '\

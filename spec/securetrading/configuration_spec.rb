@@ -91,4 +91,26 @@ describe Securetrading::Configuration, type: :no_config do
       end
     end
   end
+
+  context 'when initialized with options hash' do
+    let(:config_opts) do
+      {
+        user: 'a',
+        password: 'b',
+        site_security_password: '123',
+        site_reference: 'a',
+        auth_method: 'PRE'
+      }
+    end
+    let(:config) { described_class.new(config_opts) }
+
+    it 'sets configuration options properly' do
+      expect(config.user).to eq('a')
+      expect(config.password).to eq('b')
+      expect(config.site_security_password).to eq('123')
+      expect(config.site_reference).to eq('a')
+      expect(config.auth_method).to eq('PRE')
+      expect(config.auth).to eq(Base64.encode64('a:b'))
+    end
+  end
 end
