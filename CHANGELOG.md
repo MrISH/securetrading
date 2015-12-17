@@ -1,6 +1,16 @@
 # Securetrading change log
 
-## 0.4.0 / Unreleased
+## 0.4.1 / Unreleased
+
+* [Added] 
+
+* [Deprecated]
+
+* [Removed]
+
+* [Fixed]
+
+## 0.4.0 / 2015-12-17
 
 * [Added] 
   * Allow to pass configuration options directly to requests.
